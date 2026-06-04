@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneAppetite UI" verbose="1">
+    <listeners>
+        <listener class-name="com.cts.mfrp.oneappetite.utils.ExtentReportListener"/>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+
+    <!-- Filter: run only @Test methods whose groups array contains "UI".
+         These tests assert on element visibility, page rendering, navigation,
+         URL routing, theme/styling — anything the user can see. Useful after
+         CSS / template changes when you want to verify the front-end didn't break. -->
+    <groups>
+        <run>
+            <include name="UI"/>
+        </run>
+    </groups>
+
+    <!-- Auto-discover every test class under all sub-packages. -->
+    <test name="OneAppetite UI Suite">
+        <packages>
+            <package name="com.cts.mfrp.oneappetite.tests.auth"/>
+            <package name="com.cts.mfrp.oneappetite.tests.shared"/>
+            <package name="com.cts.mfrp.oneappetite.tests.vendor"/>
+            <package name="com.cts.mfrp.oneappetite.tests.employee"/>
+            <package name="com.cts.mfrp.oneappetite.tests.admin"/>
+        </packages>
+    </test>
+</suite>

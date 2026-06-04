@@ -1,0 +1,14 @@
+com\cts\mfrp\oneappetite\tests\MyOrdersTest.class
+com\cts\mfrp\oneappetite\tests\ForgotPasswordTest.class
+com\cts\mfrp\oneappetite\tests\EmployeeSettingsTest.class
+com\cts\mfrp\oneappetite\tests\support\LoginHelper.class
+com\cts\mfrp\oneappetite\tests\LoginTest.class
+com\cts\mfrp\oneappetite\tests\VendorSettingsTest.class
+com\cts\mfrp\oneappetite\tests\VendorDashboardTest.class
+com\cts\mfrp\oneappetite\tests\LocationSelectionTest.class
+com\cts\mfrp\oneappetite\tests\NotificationsTest.class
+com\cts\mfrp\oneappetite\tests\AdminUserMgmtTest.class
+com\cts\mfrp\oneappetite\tests\ThemeTest.class
+com\cts\mfrp\oneappetite\tests\VendorMenuMgmtTest.class
+com\cts\mfrp\oneappetite\tests\CreateAccountTest.class
+com\cts\mfrp\oneappetite\tests\AdminSettingsTest.class

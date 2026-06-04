@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneAppetite Regression" verbose="1">
+    <listeners>
+        <listener class-name="com.cts.mfrp.oneappetite.utils.ExtentReportListener"/>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+
+    <!-- Filter: run every @Test method whose groups array contains "regression".
+         Because every test in the project is tagged with "regression", this suite
+         is effectively the full coverage run. -->
+    <groups>
+        <run>
+            <include name="regression"/>
+        </run>
+    </groups>
+
+    <!-- Scan every test class under all sub-packages; TestNG will pick up every
+         class automatically, so adding new test classes later requires no edits here. -->
+    <test name="OneAppetite Regression Suite">
+        <packages>
+            <package name="com.cts.mfrp.oneappetite.tests.auth"/>
+            <package name="com.cts.mfrp.oneappetite.tests.shared"/>
+            <package name="com.cts.mfrp.oneappetite.tests.vendor"/>
+            <package name="com.cts.mfrp.oneappetite.tests.employee"/>
+            <package name="com.cts.mfrp.oneappetite.tests.admin"/>
+        </packages>
+    </test>
+</suite>

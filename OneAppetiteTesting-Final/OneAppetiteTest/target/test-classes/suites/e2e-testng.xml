@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+    OneAppetite E2E Suite
+    ~~~~~~~~~~~~~~~~~~~~~
+    Runs only the six test methods tagged with the "e2e" group, in a fixed
+    order that mirrors the real-world flow:
+
+      Step 1  MenuPageTest.addFirstItemRevealsCta      — Employee adds an item; CTA appears
+      Step 2  MenuPageTest.viewCartNavigatesToCartPage  — Employee navigates to cart
+      Step 3  VendorDashboardTest.orderPlacedByEmployeeAppearsOnVendorDashboard
+                                                        — Employee places order; vendor sees it in Placed
+      Step 4  VendorDashboardTest.moveToPreparingButtonAdvancesOrder — Vendor moves to Preparing
+      Step 5  VendorDashboardTest.moveToReadyButtonAdvancesOrder     — Vendor moves to Ready
+      Step 6  VendorDashboardTest.markAsPickedUpButtonRemovesOrder   — Vendor marks PickedUp
+
+    preserve-order="true" at both suite and test level guarantees TestNG
+    executes methods in the exact sequence listed below, not alphabetically.
+-->
+<suite name="OneAppetite E2E Suite" verbose="1" preserve-order="true">
+
+    <listeners>
+        <listener class-name="com.cts.mfrp.oneappetite.utils.ExtentReportListener"/>
+    </listeners>
+
+    <parameter name="browser"  value="chrome"/>
+    <parameter name="headless" value="false"/>
+
+    <groups>
+        <run>
+            <include name="e2e"/>
+        </run>
+    </groups>
+
+    <!-- ================================================================== -->
+    <!-- Steps 1-2: Employee adds item and navigates to cart                 -->
+    <!-- ================================================================== -->
+    <test name="E2E - Step 1-2: Employee Menu and Cart" preserve-order="true">
+        <classes>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.MenuPageTest">
+                <methods>
+                    <include name="addFirstItemRevealsCta"/>
+                    <include name="viewCartNavigatesToCartPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- ================================================================== -->
+    <!-- Steps 3-6: Employee places order → Vendor advances through Kanban   -->
+    <!-- ================================================================== -->
+    <test name="E2E - Step 3-6: Order Placement and Vendor Kanban Flow" preserve-order="true">
+        <classes>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.VendorDashboardTest">
+                <methods>
+                    <include name="orderPlacedByEmployeeAppearsOnVendorDashboard"/>
+                    <include name="moveToPreparingButtonAdvancesOrder"/>
+                    <include name="moveToReadyButtonAdvancesOrder"/>
+                    <include name="markAsPickedUpButtonRemovesOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

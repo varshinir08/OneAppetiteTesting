@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneAppetite Parallel Regression" verbose="1" parallel="classes" thread-count="3">
+    <listeners>
+        <listener class-name="com.cts.mfrp.oneappetite.utils.ExtentReportListener"/>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="true"/>
+
+    <test name="All Tests (parallel by class)">
+        <classes>
+            <class name="com.cts.mfrp.oneappetite.tests.auth.LoginTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.auth.ForgotPasswordTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.auth.CreateAccountTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.shared.ThemeTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.shared.NotificationsTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.shared.TopBarComponentTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.LocationSelectionTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.DashboardPageTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.MenuPageTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.CartPageTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.OrderPageTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.MyOrdersTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.employee.EmployeeSettingsTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.VendorDashboardTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.VendorMenuMgmtTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.vendor.VendorSettingsTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.admin.AdminUserMgmtTest"/>
+            <class name="com.cts.mfrp.oneappetite.tests.admin.AdminSettingsTest"/>
+        </classes>
+    </test>
+</suite>

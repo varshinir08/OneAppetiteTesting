@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OneAppetite Smoke" verbose="1">
+    <listeners>
+        <listener class-name="com.cts.mfrp.oneappetite.utils.ExtentReportListener"/>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+
+    <!-- Filter: run only @Test methods whose groups array contains "smoke". -->
+    <groups>
+        <run>
+            <include name="smoke"/>
+        </run>
+    </groups>
+
+    <!-- Scan every test class under all sub-packages so you don't have to list
+         them manually here. TestNG will pick up any class with @Test methods and
+         apply the smoke filter above. -->
+    <test name="OneAppetite Smoke Suite">
+        <packages>
+            <package name="com.cts.mfrp.oneappetite.tests.auth"/>
+            <package name="com.cts.mfrp.oneappetite.tests.shared"/>
+            <package name="com.cts.mfrp.oneappetite.tests.vendor"/>
+            <package name="com.cts.mfrp.oneappetite.tests.employee"/>
+            <package name="com.cts.mfrp.oneappetite.tests.admin"/>
+        </packages>
+    </test>
+</suite>
